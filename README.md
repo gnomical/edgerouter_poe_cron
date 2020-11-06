@@ -1,5 +1,5 @@
 # edgerouter_poe_cron
-scripts and instructions for controlling the poe on an edgerouter via cron
+scripts and instructions for controlling the poe on an edgerouter via cron / task-scheduler
 
 ## Customize the scripts
 In order to utilize these scripts you must alter them to the specifics of your network devices. The line of interest is the `set` line of both the poe_on and poe_off scripts. 
