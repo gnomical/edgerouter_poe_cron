@@ -1,7 +1,7 @@
 # edgerouter_poe_cron
 scripts and instructions for controlling the poe on an edgerouter via cron / task-scheduler
 
-## Customize the scripts
+### Customize the scripts
 In order to utilize these scripts you must alter them to the specifics of your network devices. The line of interest is the `set` line of both the poe_on and poe_off scripts. 
 
     $WR set interfaces ethernet <<eth4>> poe output <<off>>
@@ -16,11 +16,11 @@ I use two different Unifi APs
 1. AC Lite which requires `24v` 
 1. AC NanoHD which requires `48v`
 
-## Where to place the scripts
+### Where to place the scripts
 SSH onto your edgerouter and place the scripts at `/config/user-data/`
 This location will be preserved during firmware upgrades so that you will not need to perform this task again in the future.
 
-## Don't go editing the crontab
+### Don't go editing the crontab
 At this point you are ready to enable the cron jobs, however, for the sake of these changes surviving a firmware upgrade you must add them in a proprietary fashion.
 1. SSH onto your edgerouter
 1. enter configure mode by typing  
@@ -39,5 +39,5 @@ At this point you are ready to enable the cron jobs, however, for the sake of th
         save  
         exit
     
-## Helpful Hint
+### Helpful Hint
 While initially setting this up or debugging your schedules it is helpful to do so while physically hardwired to your router. That way if you accidentally turn an access point off you will still be connected. Just be sure not to turn on POE to the jack you are connected to! 
