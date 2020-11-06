@@ -23,15 +23,21 @@ This location will be preserved during firmware upgrades so that you will not ne
 ## Don't go editing the crontab
 At this point you are ready to enable the cron jobs, however, for the sake of these changes surviving a firmware upgrade you must add them in a proprietary fashion.
 1. SSH onto your edgerouter
-1. enter configure mode by typing `configure`
+1. enter configure mode by typing  
+        
+        configure
+        
 1. two commands will be required for each cron entry
-    set system task-scheduler task POWERDOWN crontab-spec "0 6 * * 6"
-    set system task-scheduler task POWERDOWN executable path /config/user-data/poe_off.sh
+
+        set system task-scheduler task POWERDOWN crontab-spec "0 6 * * *"  
+        set system task-scheduler task POWERDOWN executable path /config/user-data/poe_off.sh  
+    
 1. repeat that for the POWERON task and any other schedules you would like to program
 1. once all task-scheduler entries have been created you must commit and save them
-    commit
-    save
-    exit
+
+        commit  
+        save  
+        exit
     
 ## Helpful Hint
 While initially setting this up or debugging your schedules it is helpful to do so while physically hardwired to your router. That way if you accidentally turn an access point off you will still be connected. Just be sure not to turn on POE to the jack you are connected to! 
